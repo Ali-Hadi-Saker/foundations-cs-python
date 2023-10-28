@@ -6,3 +6,4 @@ Created on Sat Oct 28 23:40:05 2023
 """
 
 print("hello ")
+print("hi")
