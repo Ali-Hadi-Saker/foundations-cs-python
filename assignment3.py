@@ -6,7 +6,7 @@ Created on Sat Oct 28 23:40:05 2023
 """
 
 
-def Matrices():
+def Matrices():#big O(n**2)
     rows = eval(input("enter number of rows: "))
     columns = eval(input("enter number of columns: "))
     matrix_1 = []
@@ -33,7 +33,7 @@ def Matrices():
     return [matrix_1, matrix_2]
 
 
-def addMatrices(matrix1, matrix2):
+def addMatrices(matrix1, matrix2):#big O(n**2)
     result = []
     for i in range(len(matrix1)):  # i in range numbers of rows of matrix
         result.append([])
@@ -43,7 +43,7 @@ def addMatrices(matrix1, matrix2):
     return result
 
 
-def checkRotation():
+def checkRotation():#big O(n**2)
     matrix1 = []
     matrix2 = []
     row_1 = int(input("enter number of rows of first matrix: "))
@@ -73,7 +73,7 @@ def checkRotation():
         print("Matrix 1 is not the rotation of Matrix 2")
 
 
-def checkPalindrome(s):
+def checkPalindrome(s):#big O(n/2)
     # base condition reach when one or no character left
     if len(s) == 1 or len(s) == 0:
         return True
@@ -95,7 +95,7 @@ def searchForElement(list):  # big O(n)
     return -1
 
 
-def mergeSort(list):
+def mergeSort(list):#big O(nlogn)
     if len(list) > 1:
         left_list = list[:len(list)//2]#dividing list into two parts
         right_list =list[len(list)//2:]
@@ -157,7 +157,7 @@ def convertMatrix():
     dictionary = {}
     for row in matrix:
         key = row[2]  # take element of index 2 as key
-        data = row[:2] + row[3:]  # take all element exept id as data
+        data = row[:2] + row[3:]  # take all element except data
         dictionary[key] = data
     print("the dictionary is:", dictionary)
 
