@@ -74,7 +74,7 @@ def checkPalindrome(s):
     else:
         #return s removing the first and last character
         return checkPalindrome(s[1:-1])
-def searchForElement():
+def searchForElement():#big O(n)
     list = [5, 10, 25, 2, 13, 88, 7, 20, 1]
     element = eval(input("Enter an element to search for: "))
     
