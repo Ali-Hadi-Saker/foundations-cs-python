@@ -123,7 +123,13 @@ def convertMatrix():
         matrix[i].append(job_title)
         company = input("Enter company name: ")
         matrix[i].append(company)
-    print(matrix)
+    print("the matrix is ", matrix)
+    dictionary = {}
+    for row in matrix:
+        key = row[2]  # take element of index 2 as key
+        data = row[:2] + row[3:]  # take all element exept id as data
+        dictionary[key] = data
+    print("the dictionary is:", dictionary)
 
 
 def displayMenu():
