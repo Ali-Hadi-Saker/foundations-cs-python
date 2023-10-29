@@ -95,6 +95,19 @@ def searchForElement(list):  # big O(n)
     return -1
 
 
+def mergeSort(list):
+    if len(list) > 1:
+        left_list = list[:len(list)//2]#dividing list into two parts
+        right_list =list[len(list)//2:]
+        #recursion
+        mergeSort(left_list)
+        mergeSort(right_list)
+        #merge
+        i = 0 #left side index
+        j = 0 #right side index
+        k = 0 #merged index
+        
+
 def invertDictionary():
     size = int(input("Enter the size of dictionary: "))
     dictionary = {}
@@ -171,6 +184,7 @@ def main():
                 print("the element is found at index: ", index)
             else:
                 print("the element is not fond in the list")
+            mergeSort(list)
         else:
             print("Invalid input!!")
             print("Please enter a valid option")
