@@ -82,6 +82,14 @@ def searchForElement():#big O(n)
         if list[i] == element:
             return i
     return -1
+def invertDictionary():
+    size = int(input("Enter the size of dictionary: "))
+    dictionary = {}
+    for i in range(size):
+        key = input("Enter your key: ")
+        element = input("Enter your element: ")
+        dictionary[key] = element
+    print("Your dictionary is: ", dictionary)
         
 def displayMenu():
     print("1.Add Matrices \n" + "2.Check Rotation \n" + "3.Invert Dictionary \n" + "4.Convert Matrix to Dictionary \n" + "5.Check Palindrome \n" + "6.Search for an Element and Merge sort \n" + "7.Exit")
@@ -99,7 +107,7 @@ def main():
         elif choice == 2:
             checkRotation()
         elif choice == 3:
-            pass
+            invertDictionary()
         elif choice == 4:
             pass
         elif choice == 5:
