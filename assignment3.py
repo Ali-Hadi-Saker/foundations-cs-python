@@ -64,6 +64,17 @@ def checkRotation():
         print("Matrix 1 is the rotation of Matrix 2")
     else:
         print("Matrix 1 is not the rotation of Matrix 2")
+def checkPalindrome(s):
+    #base condition reach when one or no character left
+    if len(s) == 1 or len(s) == 0:
+        return True
+    if s[0] != s[-1]:
+        return False
+    #if first and last char are different then return false
+    else:
+        #return s removing the first and last character
+        return checkPalindrome(s[1:-1])
+        
 def displayMenu():
     print("1.Add Matrices \n" + "2.Check Rotation \n" + "3.Invert Dictionary \n" + "4.Convert Matrix to Dictionary \n" + "5.Check Palindrome \n" + "6.Search for an Element and Merge sort \n" + "7.Exit")
 def main():
@@ -79,14 +90,13 @@ def main():
             print(addMatrices(matrices[0],matrices[1]))#pass the matrices to add function
         elif choice == 2:
             checkRotation()
-            
-            
         elif choice == 3:
             pass
         elif choice == 4:
             pass
         elif choice == 5:
-            pass
+            s = input("Enter a string: ")
+            checkPalindrome(s)
         elif choice == 6:
             pass
         elif choice == 7:
