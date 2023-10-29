@@ -43,27 +43,27 @@ def checkRotation():
     row_1 = int(input("enter number of rows of first matrix: "))
     column_1 = int(input("enter number of column of first matrix: "))
     for i in range(row_1):
-        print("row ", row_1)
+        print("row ", i)
         matrix1.append([])
         for j in range(column_1):
-            print("column ", column_1)
+            print("column ", j)
             value = eval(input("enter your number: "))
             matrix1[i].append(value)
     row_2 = int(input("enter number of rows of second matrix: "))
     column_2 = int(input("enter number of column of second matrix: "))
     for i in range(row_2):
-        print("row ", row_2)
+        print("row ", i)
         matrix2.append([])
         for j in range(column_2):
-            print("column ", column_2)
+            print("column ", j)
             value = eval(input("enter your number: "))
             matrix2[i].append(value)            
     transposed_matrix = [[matrix1[j][i] for j in range(len(matrix1))] for i in range(len(matrix1[0]))]
     #the outer loop is created by i in range(len(matrix1[0])) to loop thrue column of matrix and the j in range(len(matrix1)) is the inner loop that goes thrue column of matrix   
     if transposed_matrix == matrix2:
-        return True
+        print("Matrix 1 is the rotation of Matrix 2")
     else:
-        return False
+        print("Matrix 1 is not the rotation of Matrix 2")
 def displayMenu():
     print("1.Add Matrices \n" + "2.Check Rotation \n" + "3.Invert Dictionary \n" + "4.Convert Matrix to Dictionary \n" + "5.Check Palindrome \n" + "6.Search for an Element and Merge sort \n" + "7.Exit")
 def main():
@@ -79,6 +79,7 @@ def main():
             print(addMatrices(matrices[0],matrices[1]))#pass the matrices to add function
         elif choice == 2:
             checkRotation()
+            
             
         elif choice == 3:
             pass
