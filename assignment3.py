@@ -106,6 +106,23 @@ def mergeSort(list):
         i = 0 #left side index
         j = 0 #right side index
         k = 0 #merged index
+        while i < len(left_list) and j < len(right_list):
+            if left_list[i] < right_list[j]:
+                list[k] = left_list[i]
+                i +=1
+                k +=1
+            else:
+                list[k] = right_list[j]
+                j +=1
+                k +=1
+        while i < len(left_list):
+            list[k] = left_list[i]
+            i +=1
+            k +=1
+        while j < len(right_list):
+            list[k] = right_list[j]
+            j +=1
+            k +=1
         
 
 def invertDictionary():
@@ -185,6 +202,7 @@ def main():
             else:
                 print("the element is not fond in the list")
             mergeSort(list)
+            print("the merged list is: ", list)
         else:
             print("Invalid input!!")
             print("Please enter a valid option")
