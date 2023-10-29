@@ -74,6 +74,14 @@ def checkPalindrome(s):
     else:
         #return s removing the first and last character
         return checkPalindrome(s[1:-1])
+def searchForElement():
+    list = [5, 10, 25, 2, 13, 88, 7, 20, 1]
+    element = eval(input("Enter an element to search for: "))
+    
+    for i in range(len(list)):
+        if list[i] == element:
+            return i
+    return -1
         
 def displayMenu():
     print("1.Add Matrices \n" + "2.Check Rotation \n" + "3.Invert Dictionary \n" + "4.Convert Matrix to Dictionary \n" + "5.Check Palindrome \n" + "6.Search for an Element and Merge sort \n" + "7.Exit")
@@ -103,7 +111,11 @@ def main():
             else:
                 print(s, "is not Palindrome since the reverse is NOT equal to forward word")
         elif choice == 6:
-            pass
+            index = searchForElement()
+            if index != -1:
+                print("the element is found at index: ", index)
+            else:
+                print("the element is not fond in the list")
         else:
             print("Invalid input!!")
             print("Please enter a valid option")
