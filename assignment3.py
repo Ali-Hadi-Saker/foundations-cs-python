@@ -104,11 +104,9 @@ def main():
                 print(s, "is not Palindrome since the reverse is NOT equal to forward word")
         elif choice == 6:
             pass
-        elif choice == 7:
-            pass
         else:
             print("Invalid input!!")
             print("Please enter a valid option")
-    
+    print("you did exit the program")
 main()
         
