@@ -96,7 +96,12 @@ def main():
             pass
         elif choice == 5:
             s = input("Enter a string: ")
-            checkPalindrome(s)
+            s = s.strip().lower()
+            #to remove traling spaces and make all char lower case
+            if checkPalindrome(s):
+                print(s, "is Palindrome since the reverse is equal to forward word")
+            else:
+                print(s, "is not Palindrome since the reverse is NOT equal to forward word")
         elif choice == 6:
             pass
         elif choice == 7:
