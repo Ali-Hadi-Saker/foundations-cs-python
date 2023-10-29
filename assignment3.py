@@ -85,8 +85,8 @@ def checkPalindrome(s):
         return checkPalindrome(s[1:-1])
 
 
-def searchForElement():  # big O(n)
-    list = [5, 10, 25, 2, 13, 88, 7, 20, 1]
+def searchForElement(list):  # big O(n)
+
     element = eval(input("Enter an element to search for: "))
 
     for i in range(len(list)):
@@ -165,7 +165,8 @@ def main():
                 print(
                     s, "is not Palindrome since the reverse is NOT equal to forward word")
         elif choice == 6:
-            index = searchForElement()
+            list = [5, 10, 25, 2, 13, 88, 7, 20, 1]
+            index = searchForElement(list)
             if index != -1:
                 print("the element is found at index: ", index)
             else:
