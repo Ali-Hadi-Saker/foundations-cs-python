@@ -26,9 +26,17 @@ def Matrices():
        for j in range(columns):
            print("column: ", j)
            value = eval(input("enter the value: "))
-           matrix_2[i].append(value)    
-    print(matrix_1)
-    print(matrix_2)
+           matrix_2[i].append(value)
+    #retuen the 2 matrices as elements in a list beacause we cannot return 2 values from 1 function
+    return [matrix_1,matrix_2]
+    
+def addMatrices(matrix1, matrix2):
+    result = []
+    for i in range(len(matrix1)):#i in range numbers of rows of matrix
+        result.append([])
+        for j in range(len(matrix1[0])):#j in range numbers of columns of matrix
+            result[i].append(matrix1[i][j] + matrix2[i][j])
+    return result
         
 def displayMenu():
     print("1.Add Matrices \n" + "2.Check Rotation \n" + "3.Invert Dictionary \n" + "4.Convert Matrix to Dictionary \n" + "5.Check Palindrome \n" + "6.Search for an Element and Merge sort \n" + "7.Exit")
@@ -41,7 +49,8 @@ def main():
         displayMenu()
         choice = eval(input("Enter your choice: "))
         if choice == 1:
-            Matrices()
+            matrices = Matrices()#capture returned values
+            print(addMatrices(matrices[0],matrices[1]))#pass the matrices to add function
         elif choice == 2:
             pass
         elif choice == 3:
