@@ -90,6 +90,9 @@ def invertDictionary():
         element = input("Enter your element: ")
         dictionary[key] = element
     print("Your dictionary is: ", dictionary)
+    inverted_dict = {value: key for key, value in dictionary.items()}
+    #this line of code is from chatgpt and i didtn understand how we can check for double element 
+    print("Your dictionary is: ", inverted_dict)
         
 def displayMenu():
     print("1.Add Matrices \n" + "2.Check Rotation \n" + "3.Invert Dictionary \n" + "4.Convert Matrix to Dictionary \n" + "5.Check Palindrome \n" + "6.Search for an Element and Merge sort \n" + "7.Exit")
