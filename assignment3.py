@@ -37,7 +37,13 @@ def addMatrices(matrix1, matrix2):
         for j in range(len(matrix1[0])):#j in range numbers of columns of matrix
             result[i].append(matrix1[i][j] + matrix2[i][j])
     return result
-        
+def checkRotation(matrix1, matrix2):
+    transposed_matrix = [[matrix1[j][i] for j in range(len(matrix1))] for i in range(len(matrix1[0]))]
+    #the outer loop is created by i in range(len(matrix1[0])) to loop thrue column of matrix and the j in range(len(matrix1)) is the inner loop that goes thrue column of matrix   
+    if transposed_matrix == matrix2:
+        return True
+    else:
+        return False
 def displayMenu():
     print("1.Add Matrices \n" + "2.Check Rotation \n" + "3.Invert Dictionary \n" + "4.Convert Matrix to Dictionary \n" + "5.Check Palindrome \n" + "6.Search for an Element and Merge sort \n" + "7.Exit")
 def main():
@@ -52,7 +58,7 @@ def main():
             matrices = Matrices()#capture returned values
             print(addMatrices(matrices[0],matrices[1]))#pass the matrices to add function
         elif choice == 2:
-            pass
+            checkRotation()
         elif choice == 3:
             pass
         elif choice == 4:
