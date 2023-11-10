@@ -73,10 +73,13 @@ def closeTab(tab):
 
 
 def clearAllTabs(tab):
+    # O(n) n is the number of opened tabs
+    # adding the keys of dict to a list
     key_list = list(tab.keys())
+    # iterating thru the length of list and removing each key with corresponding value
     for i in range(len(key_list)):
         del tab[key_list[i]]
-    print(tab)
+    return tab
 
 
 def displayTabs(tab):
@@ -112,7 +115,7 @@ def main():
         elif choice == 5:
             pass
         elif choice == 6:
-            clearAllTabs(openTab())
+            print("All Tabs are closed: ", clearAllTabs(openTab()))
         elif choice == 7:
             pass
         elif choice == 8:
