@@ -69,12 +69,17 @@ def closeTab(tab):
     return tab
 
 
+def displayTabs(tab):
+    for value in tab.items():
+        print("titles are: ", value[1][0])
+
+
 def main():
     # calling other functions
     print("Welcome to Advanced Browser Tabs Simulation")
     choice = 0
     while choice != 9:
-        # cheaking the choice
+        # checking the choice
         # (wrong input repeat the code and exit to end the task)
         displayMenu()
         choice = int(input("Please enter your choice: "))
@@ -86,7 +91,7 @@ def main():
         elif choice == 3:
             pass
         elif choice == 4:
-            pass
+            print(displayTabs(openTab()))
         elif choice == 5:
             pass
         elif choice == 6:
