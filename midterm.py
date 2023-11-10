@@ -27,18 +27,12 @@ def openTab():
 
     # to check if user still want to add a new Tab
     while add_newTab:
-        # create empty list that contain title and URL
-        element_list = []
-        # incrementing tabs_num by 1 and using it as a key
-        key = tabs_num + 1
-        # taking elements from user and adding them to a list
+        # title of tab is used as a key
         title = input("Enter the title of Tab: ")
-        element_list.append(title)
         url = input("Enter the URL of the website: ")
-        element_list.append(url)
-        # store the list of elements with the in the dict
-        new_tab[key] = element_list
-        # incrementing number of tabs
+        # creating dict of name new_tab key = title and valur = url
+        new_tab[title] = url
+        # incrementing number of tabs in case
         tabs_num += 1
         # check if the user want to add a new tab
         repeat = input("do you want to add a new Tab ??: ")
