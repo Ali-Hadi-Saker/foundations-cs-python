@@ -52,12 +52,11 @@ def closeTab(tab):
     # tab.keys() shows the keys list of dict
     # list used to convert dict keys into list for indexing
     key_list = list(tab.keys())
-    # last_key to index the last key of dictionary
-    last_key = key_list[-1]
-    if index >= last_key:
-        del tab[last_key]
+    # key_list[-1] to index for the last element of list
+    # last key will be removed if index is equal or bigger then him
+    if index >= key_list[-1]:
+        del tab[key_list[-1]]
     print(tab)
-    print(last_key)
 
 
 def main():
