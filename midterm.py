@@ -70,8 +70,13 @@ def closeTab(tab):
 
 
 def displayTabs(tab):
+    list_of_titles = []
+    # tab.items() display items of dictionary
     for value in tab.items():
-        print("titles are: ", value[1][0])
+        # value[1][0], [1] to access the value
+        # [0] to access the first item of value which is the title
+        list_of_titles.append(value[1][0])
+    return list_of_titles
 
 
 def main():
@@ -91,7 +96,8 @@ def main():
         elif choice == 3:
             pass
         elif choice == 4:
-            print(displayTabs(openTab()))
+            for i in displayTabs(openTab()):
+                print("Titles are: ", i)
         elif choice == 5:
             pass
         elif choice == 6:
