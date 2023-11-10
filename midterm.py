@@ -54,6 +54,9 @@ def closeTab(tab):
     key_list = list(tab.keys())
     # last_key to index the last key of dictionary
     last_key = key_list[-1]
+    if index >= last_key:
+        del tab[last_key]
+    print(tab)
     print(last_key)
 
 
