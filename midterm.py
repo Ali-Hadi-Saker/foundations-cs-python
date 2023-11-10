@@ -11,6 +11,7 @@ def displayMenu():
           "4. Display All Tabs \n" + "5. Open Nested Tab \n" +
           "6. Clear All Tabs \n" + "7. Save Tabs \n" + "8. Import Tabs \n" +
           "9. Exit")
+    print("---------------------------------------")
 
 
 def openTab():
@@ -33,11 +34,14 @@ def openTab():
         element_list.append(url)
         # store the list of elements with the in the dict
         new_tab[key] = element_list
+        # incrementing number of tabs
+        tabs_num += 1
         # check if the user want to add a new tab
         repeat = input("do you want to add a new Tab ??: ")
+        # use lower() to make char in lower case
         if repeat.lower() == 'no':
             add_newTab = False
-    print(new_tab)
+    return new_tab
 
 
 def main():
@@ -49,7 +53,7 @@ def main():
         displayMenu()
         choice = int(input("Please enter your choice: "))
         if choice == 1:
-            openTab()
+            print("You open tab: \n", openTab())
         elif choice == 2:
             pass
         elif choice == 3:
