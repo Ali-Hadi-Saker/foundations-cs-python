@@ -51,18 +51,16 @@ def closeTab(tab):
     key_list = list(tab.keys())
     # key_list[-1] to index for the last element of list
     # last key will be removed if index is equal or bigger then him
-    if index >= key_list[-1]:
+    if index >= len(key_list):
         del tab[key_list[-1]]
     # enter else when index is smaller than last key
     else:
         # searching for the inex in key list
         for i in range(len(key_list)):
             # if the index is finded => remove it
-            if index == key_list[i]:
+            if index == i + 1:
                 del tab[key_list[i]]
-            # if no check next key
-            else:
-                i = + 1
+
     return tab
 
 
