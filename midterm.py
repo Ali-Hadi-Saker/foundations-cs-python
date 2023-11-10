@@ -94,7 +94,7 @@ def displayTabs(tab):
     for value in tab.items():
         # value[1][0], [1] to access the value
         # [0] to access the first item of value which is the title
-        list_of_titles.append(value[1][0])
+        list_of_titles.append(value[0])
     return list_of_titles
 
 
@@ -115,8 +115,10 @@ def main():
         elif choice == 3:
             switchTab(openTab())
         elif choice == 4:
+            j = 1
             for i in displayTabs(openTab()):
-                print("Titles are: ", i)
+                print("Title ", j, " is: ", i)
+                j += 1
         elif choice == 5:
             pass
         elif choice == 6:
