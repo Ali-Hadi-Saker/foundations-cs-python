@@ -7,6 +7,7 @@ Created on Thu Nov  9 21:58:10 2023
 
 
 def displayMenu():
+    print("---------------------------------------")
     print("1. Open Tab \n" + "2. Close Tab \n" + "3. Switch Tab \n" +
           "4. Display All Tabs \n" + "5. Open Nested Tab \n" +
           "6. Clear All Tabs \n" + "7. Save Tabs \n" + "8. Import Tabs \n" +
@@ -21,10 +22,11 @@ def openTab():
     add_newTab = True
     # generate number of tabs and used as a key
     tabs_num = 0
-    # create empty list that contain titile and URL
-    element_list = []
+
     # to check if user still want to add a new Tab
     while add_newTab:
+        # create empty list that contain titile and URL
+        element_list = []
         # incrementing tabs_num by 1 and using it as a key
         key = tabs_num + 1
         # taking elements from user and adding them to a list
