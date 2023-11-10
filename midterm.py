@@ -68,9 +68,10 @@ def closeTab(tab):
 def switchTab(tab):
     # O(n) n is the number of elements of dict cause in worst case senario we will iterate thru all values
     # same as closeTab function check for index if is higher or equal to number of element switch the last tab
-    index = int(input("Enter the index of tab that you want to close: "))
+    index = int(input("Enter the index of tab that you want to show its HTML: "))
     url_list = list(tab.values())
     if index >= len(url_list):
+        # youtube video that help me https://youtu.be/myAFVM7CxWk?si=IZTTnQdtzBJr4Z9t
         url = url_list[-1]
         html_code = urlopen(url).read().decode("utf-8")
         print(html_code)
@@ -79,8 +80,9 @@ def switchTab(tab):
         for i in range(len(url_list)):
             # if the index is finded => remove it
             if index == i + 1:
-                pass
-    return tab
+                url = url_list[i]
+                html_code = urlopen(url).read().decode("utf-8")
+    return html_code
 
 
 def displayTabs(tab):
@@ -119,7 +121,7 @@ def main():
             print("The list of tabs after modification is: \n",
                   closeTab(openTab()))
         elif choice == 3:
-            switchTab(openTab())
+            print(switchTab(openTab()))
         elif choice == 4:
             j = 1
             for i in displayTabs(openTab()):
