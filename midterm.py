@@ -7,6 +7,7 @@ Created on Thu Nov  9 21:58:10 2023
 
 
 def displayMenu():
+    # O(1) function will always display a constant number of options which is 9
     print("---------------------------------------")
     print("1. Open Tab \n" + "2. Close Tab \n" + "3. Switch Tab \n" +
           "4. Display All Tabs \n" + "5. Open Nested Tab \n" +
@@ -16,6 +17,7 @@ def displayMenu():
 
 
 def openTab():
+    # O(n) n is the number of tabs user want to open
     # create empty dict
     new_tab = {}
     # set a condition to indicate if we taking new Tab
@@ -44,10 +46,11 @@ def openTab():
         if repeat.lower() == 'no':
             add_newTab = False
     return new_tab
-# create a function to remove a specific tab the have the dictionary of all tabs as parameter
 
 
 def closeTab(tab):
+    # create a function to remove a specific tab the have the dictionary of all tabs as parameter
+    # O(n) n is the number of itmes "in worst case user close the last tab exist
     index = int(input("Enter the index of tab that you want to close: "))
     # tab.keys() shows the keys list of dict
     # list used to convert dict keys into list for indexing
@@ -70,6 +73,7 @@ def closeTab(tab):
 
 
 def displayTabs(tab):
+    # O(n) n is the number of values that exist in the dict
     list_of_titles = []
     # tab.items() display items of dictionary
     for value in tab.items():
