@@ -25,7 +25,7 @@ def openTab():
 
     # to check if user still want to add a new Tab
     while add_newTab:
-        # create empty list that contain titile and URL
+        # create empty list that contain title and URL
         element_list = []
         # incrementing tabs_num by 1 and using it as a key
         key = tabs_num + 1
@@ -44,6 +44,17 @@ def openTab():
         if repeat.lower() == 'no':
             add_newTab = False
     return new_tab
+# create a function to remove a specific tab the have the dictionary of all tabs as parameter
+
+
+def closeTab(tab):
+    index = int(input("Enter the index of tab that you want to close: "))
+    # tab.keys() shows the keys list of dict
+    # list used to convert dict keys into list for indexing
+    key_list = list(tab.keys())
+    # last_key to index the last key of dictionary
+    last_key = key_list[-1]
+    print(last_key)
 
 
 def main():
@@ -57,7 +68,7 @@ def main():
         if choice == 1:
             print("You open tab: \n", openTab())
         elif choice == 2:
-            pass
+            print(closeTab(openTab()))
         elif choice == 3:
             pass
         elif choice == 4:
