@@ -66,7 +66,7 @@ def closeTab(tab):
             # if no check next key
             else:
                 i = + 1
-    print(tab)
+    return tab
 
 
 def main():
@@ -74,13 +74,15 @@ def main():
     print("Welcome to Advanced Browser Tabs Simulation")
     choice = 0
     while choice != 9:
-        # cheaking the choice (wrong input repeat the code and exit to end the task)
+        # cheaking the choice
+        # (wrong input repeat the code and exit to end the task)
         displayMenu()
         choice = int(input("Please enter your choice: "))
         if choice == 1:
             print("You open tab: \n", openTab())
         elif choice == 2:
-            print(closeTab(openTab()))
+            print("The list of tabs after modification is: \n",
+                  closeTab(openTab()))
         elif choice == 3:
             pass
         elif choice == 4:
