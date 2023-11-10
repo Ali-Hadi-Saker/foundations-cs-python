@@ -13,14 +13,43 @@ def displayMenu():
           "9. Exit")
 
 
+def openTab():
+    # create empty dict
+    new_tab = {}
+    # set a condition to indicate if we taking new Tab
+    add_newTab = True
+    # generate number of tabs and used as a key
+    tabs_num = 0
+    # create empty list that contain titile and URL
+    element_list = []
+    # to check if user still want to add a new Tab
+    while add_newTab:
+        # incrementing tabs_num by 1 and using it as a key
+        key = tabs_num + 1
+        # taking elements from user and adding them to a list
+        title = input("Enter the title of Tab: ")
+        element_list.append(title)
+        url = input("Enter the URL of the website: ")
+        element_list.append(url)
+        # store the list of elements with the in the dict
+        new_tab[key] = element_list
+        # check if the user want to add a new tab
+        repeat = input("do you want to add a new Tab ??: ")
+        if repeat.lower() == 'no':
+            add_newTab = False
+    print(new_tab)
+
+
 def main():
+    # calling other functions
     print("Welcome to Advanced Browser Tabs Simulation")
     choice = 0
     while choice != 9:
+        # cheaking the choice (wrong input repeat the code and exit to end the task)
         displayMenu()
         choice = int(input("Please enter your choice: "))
         if choice == 1:
-            pass
+            openTab()
         elif choice == 2:
             pass
         elif choice == 3:
