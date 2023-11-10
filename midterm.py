@@ -59,7 +59,21 @@ def closeTab(tab):
             # if the index is finded => remove it
             if index == i + 1:
                 del tab[key_list[i]]
+    return tab
 
+
+def switchTab(tab):
+    # same as closeTab function check for index if is higher or equal to number of element switch the last tab
+    index = int(input("Enter the index of tab that you want to close: "))
+    key_list = list(tab.keys())
+    if index >= len(key_list):
+        pass
+    else:
+        # searching for the inex in key list
+        for i in range(len(key_list)):
+            # if the index is finded => remove it
+            if index == i + 1:
+                pass
     return tab
 
 
@@ -99,7 +113,7 @@ def main():
             print("The list of tabs after modification is: \n",
                   closeTab(openTab()))
         elif choice == 3:
-            pass
+            switchTab(openTab())
         elif choice == 4:
             for i in displayTabs(openTab()):
                 print("Titles are: ", i)
