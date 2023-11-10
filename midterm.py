@@ -49,8 +49,7 @@ def closeTab(tab):
     # tab.keys() shows the keys list of dict
     # list used to convert dict keys into list for indexing
     key_list = list(tab.keys())
-    # key_list[-1] to index for the last element of list
-    # last key will be removed if index is equal or bigger then him
+    # check if the index higher or equal to length of list => close the last tab
     if index >= len(key_list):
         del tab[key_list[-1]]
     # enter else when index is smaller than last key
