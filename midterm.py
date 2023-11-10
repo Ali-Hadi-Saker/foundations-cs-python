@@ -72,6 +72,13 @@ def closeTab(tab):
     return tab
 
 
+def clearAllTabs(tab):
+    key_list = list(tab.keys())
+    for i in range(len(key_list)):
+        del tab[key_list[i]]
+    print(tab)
+
+
 def displayTabs(tab):
     # O(n) n is the number of values that exist in the dict
     list_of_titles = []
@@ -105,7 +112,7 @@ def main():
         elif choice == 5:
             pass
         elif choice == 6:
-            pass
+            clearAllTabs(openTab())
         elif choice == 7:
             pass
         elif choice == 8:
