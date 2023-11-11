@@ -9,16 +9,6 @@ from urllib.request import urlopen
 # urllib.request library for opening URLs
 
 
-def displayMenu():
-    # O(1) function will always display a constant number of options which is 9
-    print("---------------------------------------")
-    print("1. Open Tab \n" + "2. Close Tab \n" + "3. Switch Tab \n" +
-          "4. Display All Tabs \n" + "5. Open Nested Tab \n" +
-          "6. Clear All Tabs \n" + "7. Save Tabs \n" + "8. Import Tabs \n" +
-          "9. Exit")
-    print("---------------------------------------")
-
-
 def openTab():
     # O(n) n is the number of tabs user want to open
     # create empty dict
@@ -96,6 +86,14 @@ def displayTabs(tab):
     return list_of_titles
 
 
+def openNestedTab(tab):
+    # openNestedTab function take a parameter list of tabs that user create
+    # and allow user to create a nested tab in a tab they want
+    index = input(
+        "enter index for the tab you want to open a nested tab to it: ")
+    # index can be number of the tab or the title of it
+
+
 def clearAllTabs(tab):
     # O(n) n is the number of opened tabs
     # adding the keys of dict to a list
@@ -104,6 +102,16 @@ def clearAllTabs(tab):
     for i in range(len(key_list)):
         del tab[key_list[i]]
     return tab
+
+
+def displayMenu():
+    # O(1) function will always display a constant number of options which is 9
+    print("---------------------------------------")
+    print("1. Open Tab \n" + "2. Close Tab \n" + "3. Switch Tab \n" +
+          "4. Display All Tabs \n" + "5. Open Nested Tab \n" +
+          "6. Clear All Tabs \n" + "7. Save Tabs \n" + "8. Import Tabs \n" +
+          "9. Exit")
+    print("---------------------------------------")
 
 
 def main():
@@ -121,14 +129,16 @@ def main():
             print("The list of tabs after modification is: \n",
                   closeTab(openTab()))
         elif choice == 3:
+            print("the HTML code of the tab is: ")
             print(switchTab(openTab()))
         elif choice == 4:
+            # j is used for title numbering
             j = 1
             for i in displayTabs(openTab()):
                 print("Title ", j, " is: ", i)
                 j += 1
         elif choice == 5:
-            pass
+            openNestedTab(openTab())
         elif choice == 6:
             print("All Tabs are closed: ", clearAllTabs(openTab()))
         elif choice == 7:
