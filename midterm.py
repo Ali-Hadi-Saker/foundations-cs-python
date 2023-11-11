@@ -112,7 +112,7 @@ def openNestedTab(tab):
                 dict_1[nested_title] = nested_url
                 # adding parent title as key and dict_1 as value to the nested tab
                 nested_tab[key_1] = dict_1
-                print(nested_tab)
+                return nested_tab
     else:
         print("index of tab does not exist!!")
 
@@ -161,7 +161,7 @@ def main():
                 print("Title ", j, " is: ", i)
                 j += 1
         elif choice == 5:
-            openNestedTab(openTab())
+            print("your nested Tab is: ", openNestedTab(parent_tabs))
         elif choice == 6:
             print("All Tabs are closed: ", clearAllTabs(openTab()))
         elif choice == 7:
