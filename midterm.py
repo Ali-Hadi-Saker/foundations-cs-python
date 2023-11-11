@@ -95,6 +95,8 @@ def openNestedTab(tab):
     # and allow user to create a nested tab in a tab they want
     index = int(input(
         "enter index for the tab you want to open a nested tab to it: "))
+    dict_1 = {}
+    # dict to create nested tab
     list_parent_key = list(tab.keys())
     # adding keys of parent dict to a list
     if index <= len(list_parent_key):
@@ -102,8 +104,15 @@ def openNestedTab(tab):
         for i in range(len(list_parent_key)):
             # searching for the corresponding tab to the index
             if index == i + 1:
+                # adding the title of parent dict as a key for nested dict
                 key_1 = list_parent_key[i]
-                print(key_1)
+                nested_title = input("enter your nested title: ")
+                nested_url = input("enter your nested URL: ")
+                # adding nested title and url as values in dict_1
+                dict_1[nested_title] = nested_url
+                # adding parent title as key and dict_1 as value to the nested tab
+                nested_tab[key_1] = dict_1
+                print(nested_tab)
     else:
         print("index of tab does not exist!!")
 
