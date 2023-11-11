@@ -95,15 +95,22 @@ def openNestedTab(tab):
     # and allow user to create a nested tab in a tab they want
     index = int(input(
         "enter index for the tab you want to open a nested tab to it: "))
-    if index <= len(list(tab.key())):
-        pass
+    list_parent_key = list(tab.keys())
+    # adding keys of parent dict to a list
+    if index <= len(list_parent_key):
+        # checking if the index is smaller or equal to number of Tabs => you can implement a nested tab
+        for i in range(len(list_parent_key)):
+            # searching for the corresponding tab to the index
+            if index == i + 1:
+                key_1 = list_parent_key[i]
+                print(key_1)
     else:
         print("index of tab does not exist!!")
 
 
 def clearAllTabs(tab):
     # O(n) n is the number of opened tabs
-    # adding the keys of dict to a list
+    # adding the keys of parent dict to a list
     key_list = list(tab.keys())
     # iterating thru the length of list and removing each key with corresponding value
     for i in range(len(key_list)):
