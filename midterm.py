@@ -8,11 +8,13 @@ Created on Thu Nov  9 21:58:10 2023
 from urllib.request import urlopen
 # urllib.request library for opening URLs
 
+new_tab = {}
+
 
 def openTab():
     # O(n) n is the number of tabs user want to open
     # create empty dict
-    new_tab = {}
+
     # set a condition to indicate if we taking new Tab
     add_newTab = True
     # generate number of tabs and used as a key
@@ -64,11 +66,10 @@ def switchTab(tab):
         # youtube video that help me https://youtu.be/myAFVM7CxWk?si=IZTTnQdtzBJr4Z9t
         url = url_list[-1]
         html_code = urlopen(url).read().decode("utf-8")
-        print(html_code)
     else:
-        # searching for the inex in key list
+        # searching for the index in key list
         for i in range(len(url_list)):
-            # if the index is finded => remove it
+            # when index in found get the corresponding url
             if index == i + 1:
                 url = url_list[i]
                 html_code = urlopen(url).read().decode("utf-8")
@@ -89,9 +90,8 @@ def displayTabs(tab):
 def openNestedTab(tab):
     # openNestedTab function take a parameter list of tabs that user create
     # and allow user to create a nested tab in a tab they want
-    index = input(
-        "enter index for the tab you want to open a nested tab to it: ")
-    # index can be number of the tab or the title of it
+    index = int(input(
+        "enter index for the tab you want to open a nested tab to it: "))
 
 
 def clearAllTabs(tab):
@@ -127,14 +127,14 @@ def main():
             print("You open tab: \n", openTab())
         elif choice == 2:
             print("The list of tabs after modification is: \n",
-                  closeTab(openTab()))
+                  closeTab(new_tab))
         elif choice == 3:
             print("the HTML code of the tab is: ")
-            print(switchTab(openTab()))
+            print(switchTab(new_tab))
         elif choice == 4:
             # j is used for title numbering
             j = 1
-            for i in displayTabs(openTab()):
+            for i in displayTabs(new_tab):
                 print("Title ", j, " is: ", i)
                 j += 1
         elif choice == 5:
