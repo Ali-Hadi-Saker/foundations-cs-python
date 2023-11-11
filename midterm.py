@@ -8,7 +8,10 @@ Created on Thu Nov  9 21:58:10 2023
 from urllib.request import urlopen
 # urllib.request library for opening URLs
 
-new_tab = {}
+parent_tabs = {}
+# dict contain all opend tabs
+nested_tab = {}
+# dict contain nested tabs user want to open
 
 
 def openTab():
@@ -25,8 +28,8 @@ def openTab():
         # title of tab is used as a key
         title = input("Enter the title of Tab: ")
         url = input("Enter the URL of the website: ")
-        # creating dict of name new_tab key = title and valur = url
-        new_tab[title] = url
+        # creating dict of name parent_tabs key = title and valur = url
+        parent_tabs[title] = url
         # incrementing number of tabs in case
         tabs_num += 1
         # check if the user want to add a new tab
@@ -34,7 +37,7 @@ def openTab():
         # use lower() to make char in lower case
         if repeat.lower() == 'no':
             add_newTab = False
-    return new_tab
+    return parent_tabs
 
 
 def closeTab(tab):
@@ -92,6 +95,10 @@ def openNestedTab(tab):
     # and allow user to create a nested tab in a tab they want
     index = int(input(
         "enter index for the tab you want to open a nested tab to it: "))
+    if index <= len(list(tab.key())):
+        pass
+    else:
+        print("index of tab does not exist!!")
 
 
 def clearAllTabs(tab):
@@ -127,14 +134,14 @@ def main():
             print("You open tab: \n", openTab())
         elif choice == 2:
             print("The list of tabs after modification is: \n",
-                  closeTab(new_tab))
+                  closeTab(parent_tabs))
         elif choice == 3:
             print("the HTML code of the tab is: ")
-            print(switchTab(new_tab))
+            print(switchTab(parent_tabs))
         elif choice == 4:
             # j is used for title numbering
             j = 1
-            for i in displayTabs(new_tab):
+            for i in displayTabs(parent_tabs):
                 print("Title ", j, " is: ", i)
                 j += 1
         elif choice == 5:
