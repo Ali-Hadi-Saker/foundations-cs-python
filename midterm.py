@@ -181,13 +181,13 @@ def main():
             displayTabs(parent_tabs)
             # j is used for title numbering
             j = 1
+            # i iterate thru list of parentTabs titles
             for i in parent_tabs:
                 print("Title ", j, " is: ", i)
-                key_list_nested_tab = list(nested_tab.keys())
-                key_list_parent_tab = list(parent_tabs.keys())
-                for i in range(len(key_list_nested_tab)):
-                    if key_list_nested_tab[i] == parent_tabs.keys():
-                        print(key_list_nested_tab[i])
+                # checking if the title of parent tab exist as a key in nested tab
+                for key, value in nested_tab.items():
+                    if key == i:
+                        print("with nested tab", key, value)
                 j += 1
         elif choice == 5:
             print("your nested Tab is: ", openNestedTab(parent_tabs))
