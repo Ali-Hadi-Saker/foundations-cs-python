@@ -37,8 +37,14 @@ def openTab():
         # check if the user want to add a new tab
         repeat = input("do you want to add a new Tab ??: ")
         # use lower() to make char in lower case
+        while repeat != 'no' and repeat != 'yes':
+            print("Please enter a valid input 'yes' or 'no': ")
+            repeat = input("do you want to add a new Tab ??: ")
+            # while loop to check if user want to add a new tab or no
         if repeat.lower() == 'no':
             add_newTab = False
+        elif repeat.lower() == 'yes':
+            add_newTab = True
     return parent_tabs
 
 
