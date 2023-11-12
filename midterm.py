@@ -170,13 +170,20 @@ def main():
         displayMenu()
         choice = int(input("Please enter your choice: "))
         if choice == 1:
-            print("You open tab: \n", openTab())
+            openTab()
+            for key, value in parent_tabs.items():
+                print("Title of tab is: ", key,
+                      "and the corresponding URL is: ", value)
         elif choice == 2:
-            print("The list of tabs after modification is: \n",
-                  closeTab(parent_tabs))
+            closeTab(parent_tabs)
+            print("The list of tabs after modification is: ")
+            for key, value in parent_tabs.items():
+                print("Title of tab is: ", key,
+                      "and the corresponding URL is: ", value)
+
         elif choice == 3:
-            print("the HTML code of the tab is: ")
-            print(switchTab(parent_tabs))
+            print("the HTML code of the tab is: ", switchTab(parent_tabs))
+
         elif choice == 4:
             displayTabs(parent_tabs)
             # j is used for title numbering
