@@ -141,9 +141,12 @@ def saveTabs(parent_tabs, nested_tab):
         # as alias and f for file
         json.dump(parent_tabs, f)
         # first parameter is the json data  and second parameter is the writer f
+    return parent_tabs
 
 
 def importTabs():
+    # o(n^2) in worst case there is a nested tab in each tab (n is the number of tabs)
+    # https://youtu.be/IQCx2P3aclA?si=13j1fxwAvQDgL4WY helping of how to import json file
     load_file = input("enter file path to load your file:  ")
     # file path of loaded file given by user
     with open(load_file, 'r') as f:
@@ -152,6 +155,18 @@ def importTabs():
     # load json data from file
     tabs = file.get('tabs', [])
     # get the list of tabs and if file is empty get function return empty list
+    for item in tabs:
+        # how to use get methode(https://stackoverflow.com/questions/35669227/get-method-for-nested-json-doesnt-work)
+        title = item.get('title', '')
+        # getting title if doesnt exist return empty string
+        url = item.get('url', '')
+        # getting url if dosent exist return empty string
+        parent_tabs[title] = url
+        # adding the title of each tab with the corresponding url
+        nested_tab[title] = item.get('nested_tabss', [])
+        # adding the nested tabs to nested tabs dictionary
+        # NOTE!!! the key of each element should be written same as in get function or the function will return ' '
+    return parent_tabs, nested_tab
 
 
 def displayMenu():
@@ -208,7 +223,9 @@ def main():
             # saveTabs function take parent and nested tabs as parameter and save them in a file using JSON format
             saveTabs(parent_tabs, nested_tab)
         elif choice == 8:
-            importTabs()
+            result = importTabs()
+            print("the open tabs are: ", result[0])
+            print("the nested tabs are: ", result[1])
         elif choice == 9:
             print("You are exiting")
         else:
