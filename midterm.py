@@ -7,11 +7,13 @@ Created on Thu Nov  9 21:58:10 2023
 
 from urllib.request import urlopen
 # urllib.request library for opening URLs
+import json
+# import json module
 
 parent_tabs = {}
-# dict contain all opend tabs
+# dict contain all opend tabs, can be access by all functions
 nested_tab = {}
-# dict contain nested tabs user want to open
+# dict contain nested tabs user want to open, can be access by all functions
 
 
 def openTab():
@@ -127,6 +129,18 @@ def clearAllTabs(tab):
     return tab
 
 
+def saveTabs(parent_tabs, nested_tab):
+    file_path = input("enter your file path to save tabs in it ")
+    # https://youtu.be/Vrg5ZT3dTLc?si=Ai4yi9TGkWm1gKH0
+    with open(r'C:\Users\1\Desktop\New folder\midterm.json', 'w') as f:
+        # open function the first parameter is the location which we are writing to (taken from user)
+        # the file path should finish by /name.json
+        # 'w' parameter index of write
+        # as alias and f for file
+        json.dump(parent_tabs, f)
+        # first parameter is the json data  and second parameter is the writer f
+
+
 def displayMenu():
     # O(1) function will always display a constant number of options which is 9
     print("---------------------------------------")
@@ -155,17 +169,24 @@ def main():
             print("the HTML code of the tab is: ")
             print(switchTab(parent_tabs))
         elif choice == 4:
+            displayTabs(parent_tabs)
             # j is used for title numbering
             j = 1
-            for i in displayTabs(parent_tabs):
+            for i in parent_tabs:
                 print("Title ", j, " is: ", i)
+                key_list_nested_tab = list(nested_tab.keys())
+                key_list_parent_tab = list(parent_tabs.keys())
+                for i in range(len(key_list_nested_tab)):
+                    if key_list_nested_tab[i] == parent_tabs.keys():
+                        print(key_list_nested_tab[i])
                 j += 1
         elif choice == 5:
             print("your nested Tab is: ", openNestedTab(parent_tabs))
         elif choice == 6:
-            print("All Tabs are closed: ", clearAllTabs(openTab()))
+            print("All Tabs are closed: ", clearAllTabs(parent_tabs))
         elif choice == 7:
-            pass
+            # saveTabs function take parent and nested tabs as parameter and save them in a file using JSON format
+            saveTabs(parent_tabs, nested_tab)
         elif choice == 8:
             pass
         elif choice == 9:
