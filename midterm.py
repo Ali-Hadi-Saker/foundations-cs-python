@@ -30,6 +30,10 @@ def openTab():
         # title of tab is used as a key
         title = input("Enter the title of Tab: ")
         url = input("Enter the URL of the website: ")
+        while url[0:5] != 'https':
+            # checking if the url is valid
+            print("enter a valid url that start with https")
+            url = input("Enter the URL of the website: ")
         # creating dict of name parent_tabs key = title and valur = url
         parent_tabs[title] = url
         # incrementing number of tabs in case
@@ -116,6 +120,10 @@ def openNestedTab(tab):
                 key_1 = list_parent_key[i]
                 nested_title = input("enter your nested title: ")
                 nested_url = input("enter your nested URL: ")
+                while nested_url[0:5] != 'https':
+                    # checking if the url is valid
+                    print("enter a valid url that start with https")
+                    nested_url = input("Enter the URL of the website: ")
                 # adding nested title and url as values in dict_1
                 dict_1[nested_title] = nested_url
                 # adding parent title as key and dict_1 as value to the nested tab
@@ -215,7 +223,7 @@ def main():
             j = 1
             # i iterate thru list of parentTabs titles
             for i in parent_tabs:
-                print("Title ", j, " is: ", i)
+                print("Tab ", j, " is: ", i)
                 # checking if the title of parent tab exist as a key in nested tab
                 for key, value in nested_tab.items():
                     if key == i:
