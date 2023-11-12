@@ -130,6 +130,8 @@ def clearAllTabs(tab):
 
 
 def saveTabs(parent_tabs, nested_tab):
+    # O(n^2) where n is the number of tabs
+    # in worst case senario there is a nested tab in every tab
     file_path = input("enter your file path to save tabs in it ")
     # https://youtu.be/Vrg5ZT3dTLc?si=Ai4yi9TGkWm1gKH0
     with open(r'C:\Users\1\Desktop\New folder\midterm.json', 'w') as f:
@@ -137,8 +139,15 @@ def saveTabs(parent_tabs, nested_tab):
         # the file path should finish by /name.json
         # 'w' parameter index of write
         # as alias and f for file
+        # r before the file path is to ignore \
         json.dump(parent_tabs, f)
         # first parameter is the json data  and second parameter is the writer f
+
+
+def importTabs():
+    load_file = input("enter file path to load your file:  ")
+    file = open("load_file/name.json")
+    json.load(file)
 
 
 def displayMenu():
@@ -188,7 +197,7 @@ def main():
             # saveTabs function take parent and nested tabs as parameter and save them in a file using JSON format
             saveTabs(parent_tabs, nested_tab)
         elif choice == 8:
-            pass
+            importTabs()
         elif choice == 9:
             print("You are exiting")
         else:
