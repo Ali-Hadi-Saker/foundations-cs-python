@@ -8,7 +8,7 @@ Created on Sun Nov 19 09:28:59 2023
 
 def displayMenu2():
     # display this menu if user choose choice 1
-    print("--------------------------------------")
+    print("\n--------------------------------------")
     print("a. Add Node\n" + "b. Display Nodes\n" +
           "c. Search for & Delete Node\n" + "d. Return to main")
     print("--------------------------------------")
@@ -34,28 +34,39 @@ class linkedList:
         if self.size == 0:
             # Head and tail pointing to the first node
             self.head = node
-            self.head = node
+            self.tail = node
+            self.size += 1
         else:
             # add the new node to the end of LL
             self.tail.next = node
             self.tail = node
-        self.size += 1
+            self.size += 1
         print("We succefuly add the new node", node.info)
+
+    def displayNode(self):
+        if self.size == 0:
+            # check if LL is empty
+            print(" the Linked List is empty")
+        else:
+            current = self.head
+            while current:
+                print(current.info, end=" --> ")
+                current = current.next
 
 
 def singlyLL():
     choice_2 = 0
     # while loop to check the user choice
     # if your choose 'd' loop will be break and the code go back to the main function
+    LL = linkedList()  # create an instance LL of linked list class
     while choice_2 != 'd':
         displayMenu2()
         choice_2 = input("Peek your choice from the list: ")
-        LL = linkedList()  # create an instance LL of linked list class
         if choice_2 == 'a':
             new_node = input("enter the value of new node: ")
             LL.addNode(new_node)
         elif choice_2 == 'b':
-            pass
+            LL.displayNode()
         elif choice_2 == 'c':
             pass
         elif choice_2 == 'd':
