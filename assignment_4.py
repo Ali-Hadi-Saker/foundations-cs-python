@@ -59,13 +59,21 @@ class linkedList:
         if self.size == 0:
             print("Nothing to delete list is empty")
         else:
+            # handeling when delete the first node
             current = self.head
-            while current.info != value:
-                current = current.next
             if current.info == value:
-                print("yes")
+                self.head = current.next
             else:
-                print("the value you are lokking for doesn t exist in the list: ")
+                prev = None  # create previous varaible
+                # search for value in the LL
+                while current.info != value:
+                    prev = current
+                    current = current.next
+                if current.info == value:
+                    prev.next = prev.next.next
+                else:
+                    print("the value you are lokking for doesn t exist in the list: ")
+        self.size -= 1  # decrement size of LL
 
 
 def singlyLL():
