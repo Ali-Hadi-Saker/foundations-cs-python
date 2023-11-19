@@ -25,6 +25,22 @@ class linkedList:
     # class linked list hold head pointer and all needed behaviors
     def __init__(self):
         self.head = None
+        self.tail = None  # tail help to add a new node (for optimization)
+        self.size = 0
+
+    def addNode(self, value):
+        node = Node(value)
+        # check if LL is empty
+        if self.size == 0:
+            # Head and tail pointing to the first node
+            self.head = node
+            self.head = node
+        else:
+            # add the new node to the end of LL
+            self.tail.next = node
+            self.tail = node
+        self.size += 1
+        print("We succefuly add the new node", node.info)
 
 
 def singlyLL():
