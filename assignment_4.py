@@ -29,6 +29,7 @@ class linkedList:
         self.size = 0
 
     def addNode(self, value):
+        # O(1) just adding to the end of LL using tail pointer
         node = Node(value)  # create the object node
         # check if LL is empty
         if self.size == 0:
@@ -44,6 +45,7 @@ class linkedList:
         print("We succefuly add the new node", node.info)
 
     def displayNode(self):
+        # O(n) n number of nodes in the LL
         if self.size == 0:
             # check if LL is empty
             print(" the Linked List is empty")
@@ -52,6 +54,18 @@ class linkedList:
             while current:
                 print(current.info, end=" --> ")
                 current = current.next
+
+    def searchDelete(self, value):
+        if self.size == 0:
+            print("Nothing to delete list is empty")
+        else:
+            current = self.head
+            while current.info != value:
+                current = current.next
+            if current.info == value:
+                print("yes")
+            else:
+                print("the value you are lokking for doesn t exist in the list: ")
 
 
 def singlyLL():
@@ -68,7 +82,8 @@ def singlyLL():
         elif choice_2 == 'b':
             LL.displayNode()
         elif choice_2 == 'c':
-            pass
+            remove_value = input("Enter the value you want to remove: ")
+            LL.searchDelete(remove_value)
         elif choice_2 == 'd':
             print("Return back to main Menu")
         else:
