@@ -29,7 +29,7 @@ class linkedList:
         self.size = 0
 
     def addNode(self, value):
-        node = Node(value)
+        node = Node(value)  # create the object node
         # check if LL is empty
         if self.size == 0:
             # Head and tail pointing to the first node
@@ -50,8 +50,10 @@ def singlyLL():
     while choice_2 != 'd':
         displayMenu2()
         choice_2 = input("Peek your choice from the list: ")
+        LL = linkedList()  # create an instance LL of linked list class
         if choice_2 == 'a':
-            pass
+            new_node = input("enter the value of new node: ")
+            LL.addNode(new_node)
         elif choice_2 == 'b':
             pass
         elif choice_2 == 'c':
