@@ -56,6 +56,7 @@ class linkedList:
                 current = current.next
 
     def searchDelete(self, value):
+        # O(n) n is the number of nodes
         if self.size == 0:
             print("Nothing to delete list is empty")
         else:
@@ -98,6 +99,15 @@ def singlyLL():
             print("Invalid input!!" + "Try again:")
 
 
+def checkPalindrom():
+    # convert string to a list
+    queue = list(input("Enter your string: "))
+    while len(queue) > 1:
+        if queue.pop(0) != queue.pop(-1):
+            return False
+    return True
+
+
 def displayMenu():
     print("--------------------------------------")
     print("1. Singly Linked List\n" + "2. Check if Palindrome\n" +
@@ -115,7 +125,11 @@ def main():
         if choice == 1:
             singlyLL()
         elif choice == 2:
-            pass
+            result = checkPalindrom()
+            if result:
+                print("yes")
+            else:
+                print("no")
         elif choice == 3:
             pass
         elif choice == 4:
