@@ -112,6 +112,27 @@ def checkPalindrom():
     return True
 
 
+class student:
+    def __init__(self, name, midterm_grade, final_grade, attitude):
+        self.name = name
+        self.midterm_grade = midterm_grade
+        self.final_grade = final_grade
+        self.attitude = attitude
+    # create get methode for student class
+
+    def getName(self):
+        return self.name
+
+    def getMidterm(self):
+        return self.midterm_grade
+
+    def getFinal(self):
+        return self.final_grade
+
+    def getAttitude(self):
+        return self.attitude
+
+
 def displayMenu():
     print("--------------------------------------")
     print("1. Singly Linked List\n" + "2. Check if Palindrome\n" +
