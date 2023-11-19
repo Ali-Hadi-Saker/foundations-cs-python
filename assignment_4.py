@@ -15,9 +15,21 @@ def displayMenu2():
 
 def singlyLL():
     choice_2 = 0
+    # while loop to check the user choice
+    # if your choose 'd' loop will be break and the code go back to the main function
     while choice_2 != 'd':
         displayMenu2()
-        choice_2 = int(input("Peek your choice: "))
+        choice_2 = input("Peek your choice from the list: ")
+        if choice_2 == 'a':
+            pass
+        elif choice_2 == 'b':
+            pass
+        elif choice_2 == 'c':
+            pass
+        elif choice_2 == 'd':
+            print("Return back to main Menu")
+        else:
+            print("Invalid input!!" + "Try again:")
 
 
 def displayMenu():
@@ -27,7 +39,7 @@ def displayMenu():
 
 def main():
     user_name = input("Please enter your name: ")
-    print("Welcome to our programme", user_name)
+    print("\nWelcome to our programme", user_name)
     choice = 0
     while choice != 6:
         displayMenu()
