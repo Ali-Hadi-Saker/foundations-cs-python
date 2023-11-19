@@ -5,12 +5,26 @@ Created on Sun Nov 19 09:28:59 2023
 @author: 1
 """
 
-# display this menu if user choose choice 1
-
 
 def displayMenu2():
+    # display this menu if user choose choice 1
+    print("--------------------------------------")
     print("a. Add Node\n" + "b. Display Nodes\n" +
-          "c. Search for & Delete Node\n" + "d. Return to main\n")
+          "c. Search for & Delete Node\n" + "d. Return to main")
+    print("--------------------------------------")
+
+
+class Node:
+    # class node hold data and the next of the node
+    def __init__(self, info):
+        self.info = info
+        self.next = None
+
+
+class linkedList:
+    # class linked list hold head pointer and all needed behaviors
+    def __init__(self):
+        self.head = None
 
 
 def singlyLL():
@@ -33,8 +47,10 @@ def singlyLL():
 
 
 def displayMenu():
-    print("\n1. Singly Linked List\n" + "2. Check if Palindrome\n" +
-          "3. Priority Queu\n" + "4. Evalute an Inflix Expression\n" + "5. Graph\n" + "6. Exit\n")
+    print("--------------------------------------")
+    print("1. Singly Linked List\n" + "2. Check if Palindrome\n" +
+          "3. Priority Queu\n" + "4. Evalute an Inflix Expression\n" + "5. Graph\n" + "6. Exit")
+    print("--------------------------------------")
 
 
 def main():
