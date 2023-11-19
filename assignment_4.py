@@ -100,10 +100,14 @@ def singlyLL():
 
 
 def checkPalindrom():
+    # O(n/2) n is the number of char in the string
     # convert string to a list
-    queue = list(input("Enter your string: "))
+    queue = list(input("Enter your string: ").lower())
+    # make all char lower
     while len(queue) > 1:
+        # check until number of char is higher than 1
         if queue.pop(0) != queue.pop(-1):
+            # pop function to remove first and last element
             return False
     return True
 
@@ -111,7 +115,7 @@ def checkPalindrom():
 def displayMenu():
     print("--------------------------------------")
     print("1. Singly Linked List\n" + "2. Check if Palindrome\n" +
-          "3. Priority Queu\n" + "4. Evalute an Inflix Expression\n" + "5. Graph\n" + "6. Exit")
+          "3. Priority Queue\n" + "4. Evalute an Inflix Expression\n" + "5. Graph\n" + "6. Exit")
     print("--------------------------------------")
 
 
@@ -127,9 +131,9 @@ def main():
         elif choice == 2:
             result = checkPalindrom()
             if result:
-                print("yes")
+                print("Your string is palindrome")
             else:
-                print("no")
+                print("Your string is not palindrome")
         elif choice == 3:
             pass
         elif choice == 4:
