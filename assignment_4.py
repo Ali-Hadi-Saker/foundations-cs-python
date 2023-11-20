@@ -136,14 +136,14 @@ class Student:
     def getAttitude(self):
         return self.attitude
 
-def priorityQueue():
-    std = Student("hadi", 50, 60, "good")
-    print(std)
-    add_new_student = True
+def priorityQueue():    
+    # create lists to access for student class elements
     name_list = []
     midterm_list = []
     final_list = []
     attitude_list = []
+    add_new_student = True
+    # check if user want to add student
     while add_new_student:
         name = input("enter name: ")
         name_list.append(name)
@@ -153,7 +153,17 @@ def priorityQueue():
         final_list.append(final)
         attitude = input("enter student attirude: ")
         attitude_list.append(attitude)
-        
+        repeat = input("do you want to add more student ? ")
+        if repeat.lower() == 'yes':
+            add_new_student = True
+        elif repeat.lower() == 'no':
+            add_new_student = False
+        else:
+            repeat = input(" enter 'yes' or 'no'")
+    for i in range(len(name_list)):
+        # loop to print students
+        student =Student(name_list[i], midterm_list[i], final_list[i], attitude_list[i])
+        print(student)
 
 
 def displayMenu():
