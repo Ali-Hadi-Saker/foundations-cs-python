@@ -139,6 +139,21 @@ class Student:
 def priorityQueue():
     std = Student("hadi", 50, 60, "good")
     print(std)
+    add_new_student = True
+    name_list = []
+    midterm_list = []
+    final_list = []
+    attitude_list = []
+    while add_new_student:
+        name = input("enter name: ")
+        name_list.append(name)
+        midterm = int(input("enter midterm grade: "))
+        midterm_list.append(midterm)
+        final = int(input("enter final grade: "))
+        final_list.append(final)
+        attitude = input("enter student attirude: ")
+        attitude_list.append(attitude)
+        
 
 
 def displayMenu():
