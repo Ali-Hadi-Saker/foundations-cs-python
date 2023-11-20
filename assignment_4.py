@@ -84,7 +84,7 @@ def singlyLL():
     LL = linkedList()  # create an instance LL of linked list class
     while choice_2 != 'd':
         displayMenu2()
-        choice_2 = input("Peek your choice from the list: ")
+        choice_2 = input("Peek your choice from the list: ").lower()
         if choice_2 == 'a':
             new_node = input("enter the value of new node: ")
             LL.addNode(new_node)
@@ -112,12 +112,16 @@ def checkPalindrom():
     return True
 
 
-class student:
+class Student:
     def __init__(self, name, midterm_grade, final_grade, attitude):
         self.name = name
         self.midterm_grade = midterm_grade
         self.final_grade = final_grade
         self.attitude = attitude
+    
+    def __str__(self):
+        # string function print the object student with corresponding characteristics
+        return "Name: " + self.name + ", midterm grade: " + str(self.midterm_grade) + "/100" + ", final grade: " + str(self.final_grade) + "/100" + ", attitude: " + self.attitude
     # create get methode for student class
 
     def getName(self):
@@ -131,6 +135,10 @@ class student:
 
     def getAttitude(self):
         return self.attitude
+
+def priorityQueue():
+    std = Student("hadi", 50, 60, "good")
+    print(std)
 
 
 def displayMenu():
@@ -156,7 +164,7 @@ def main():
             else:
                 print("Your string is not palindrome")
         elif choice == 3:
-            pass
+            priorityQueue()
         elif choice == 4:
             pass
         elif choice == 5:
