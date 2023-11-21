@@ -114,7 +114,7 @@ def checkPalindrom():
 def displayMenu3():
     # display this menu if user choose choice 3
     print("\n--------------------------------------")
-    print("a. Add a student\n" + "b. Interview a student\n" +
+    print("a. Add a student\n" + "b. Interview a student\n"
           + "c. Return to main")
     print("--------------------------------------")
 class Student:
@@ -141,7 +141,9 @@ class Student:
     def getAttitude(self):
         return self.attitude
 
-def addStudent():    
+def addStudent():
+    # O(n^2) n number of students user that want to add
+    # 1st loop to add student 2nd loop to print user inputs
     # create lists to access for student class elements
     name_list = []
     midterm_list = []
@@ -149,6 +151,7 @@ def addStudent():
     attitude_list = []
     add_new_student = True
     # check if user want to add student
+    # add each characterstics to its list
     while add_new_student:
         name = input("enter name: ")
         name_list.append(name)
@@ -172,8 +175,9 @@ def addStudent():
 
 def priorityQueue():
     displayMenu3()
-    choice_3 = input("Enter your choice: ")
+    choice_3 = 0
     while choice_3 != 'c':
+        choice_3 = input("Enter your choice: ").lower()
         if choice_3 == 'a':
             addStudent()
         elif choice_3 == 'b':
@@ -181,7 +185,7 @@ def priorityQueue():
         elif choice_3 == 'c':
             pass
         else:
-            pass
+            print("Invalid input!!\n" + "Please enter a valid choice a or b")
 
 
 def displayMenu():
