@@ -161,13 +161,14 @@ def addStudent():
         final_list.append(final)
         attitude = input("enter student attirude: ")
         attitude_list.append(attitude)
-        repeat = input("do you want to add more student ? ")
+        repeat = input("do you want to add more student ? ").lower()
+        # loop to handle inavlid input
+        while repeat != 'yes' and repeat != 'no':
+            repeat = input(" enter 'yes' or 'no': ").lower()
         if repeat.lower() == 'yes':
             add_new_student = True
-        elif repeat.lower() == 'no':
-            add_new_student = False
         else:
-            repeat = input(" enter 'yes' or 'no'")
+            add_new_student = False       
     for i in range(len(name_list)):
         # loop to print students
         student =Student(name_list[i], midterm_list[i], final_list[i], attitude_list[i])
@@ -183,7 +184,7 @@ def priorityQueue():
         elif choice_3 == 'b':
             pass
         elif choice_3 == 'c':
-            pass
+            print("Going back to Main Menu")
         else:
             print("Invalid input!!\n" + "Please enter a valid choice a or b")
 
