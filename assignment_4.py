@@ -111,7 +111,12 @@ def checkPalindrom():
             return False
     return True
 
-
+def displayMenu3():
+    # display this menu if user choose choice 3
+    print("\n--------------------------------------")
+    print("a. Add a student\n" + "b. Interview a student\n" +
+          + "c. Return to main")
+    print("--------------------------------------")
 class Student:
     def __init__(self, name, midterm_grade, final_grade, attitude):
         self.name = name
@@ -136,7 +141,7 @@ class Student:
     def getAttitude(self):
         return self.attitude
 
-def priorityQueue():    
+def addStudent():    
     # create lists to access for student class elements
     name_list = []
     midterm_list = []
@@ -164,6 +169,19 @@ def priorityQueue():
         # loop to print students
         student =Student(name_list[i], midterm_list[i], final_list[i], attitude_list[i])
         print(student)
+
+def priorityQueue():
+    displayMenu3()
+    choice_3 = input("Enter your choice: ")
+    while choice_3 != 'c':
+        if choice_3 == 'a':
+            addStudent()
+        elif choice_3 == 'b':
+            pass
+        elif choice_3 == 'c':
+            pass
+        else:
+            pass
 
 
 def displayMenu():
