@@ -181,6 +181,12 @@ class PriorityQueue:
     def __init__(self):
         self.head = None # initiate head pointer
         self.size = 0
+        
+    def displayNode(self):
+        current = self.head
+        while not current:
+            print(current.info)
+            current = current.next
     
     def dequeue(self):
         if self.size == 0:
