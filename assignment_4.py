@@ -129,54 +129,11 @@ class Student:
         return "Name: " + self.name + ", midterm grade: " + str(self.midterm_grade) + "/100" + ", final grade: " + str(self.final_grade) + "/100" + ", attitude: " + self.attitude
     # create get methode for student class
 
-    def getName(self):
-        return self.name
-
-    def getMidterm(self):
-        return self.midterm_grade
-
-    def getFinal(self):
-        return self.final_grade
-
-    def getAttitude(self):
-        return self.attitude
-
-def addStudent():
-    # O(n^2) n number of students user that want to add
-    # 1st loop to add student 2nd loop to print user inputs
-    # create lists to access for student class elements
-    name_list = []
-    midterm_list = []
-    final_list = []
-    attitude_list = []
-    add_new_student = True
-    # check if user want to add student
-    # add each characterstics to its list
-    while add_new_student:
-        name = input("enter name: ")
-        name_list.append(name)
-        midterm = int(input("enter midterm grade: "))
-        midterm_list.append(midterm)
-        final = int(input("enter final grade: "))
-        final_list.append(final)
-        attitude = input("enter student attirude: ")
-        attitude_list.append(attitude)
-        repeat = input("do you want to add more student ? ").lower()
-        # loop to handle inavlid input
-        while repeat != 'yes' and repeat != 'no':
-            repeat = input(" enter 'yes' or 'no': ").lower()
-        if repeat.lower() == 'yes':
-            add_new_student = True
-        else:
-            add_new_student = False  
-    
-    for i in range(len(name_list)):
-        # loop to print students
-        student =Student(name_list[i], midterm_list[i], final_list[i], attitude_list[i])
-        student_list.append(student)
-    return student_list
-student_list = []# empty list to be accessed in priorrityQueue function
-
+class Node2:
+    def __init__(self, student):
+        self.student = student
+        self.next = None
+        
 class PriorityQueue:
     def __init__(self):
         self.head = None # initiate head pointer
@@ -184,10 +141,25 @@ class PriorityQueue:
         
     def displayNode(self):
         current = self.head
-        while not current:
-            print(current.info)
+        while current != None:
+            print(current.student)
             current = current.next
-    
+            
+    def enqueue(self,student):
+        node = Node2(student)
+        if self.size == 0:
+            self.head = node
+            self.size += 1
+        else:
+            current = self.head
+            previous = current
+            while current != None:
+                previous = current
+                current = current.next               
+            previous.next = node 
+            node.next = current
+            self.size += 1
+             
     def dequeue(self):
         if self.size == 0:
             print("No student to interview ")
@@ -208,9 +180,29 @@ def priorityQueue():
     while choice_3 != 'c':
         choice_3 = input("Enter your choice: ").lower()
         if choice_3 == 'a':
-            addStudent()
-            for i in student_list:
-                print(i)
+            pq = PriorityQueue()
+            # O(n^2) n number of students user that want to add
+            # 1st loop to add student 2nd loop to print user inputs
+            # create lists to access for student class elements
+            add_new_student = True
+            # check if user want to add student
+            # add each characterstics to its list
+            while add_new_student:
+                name = input("enter name: ")
+                midterm_grade = int(input("enter midterm grade: "))
+                final_grade = int(input("enter final grade: "))
+                attitude = input("enter student attirude: ")
+                student = Student(name, midterm_grade, final_grade, attitude)
+                pq.enqueue(student)
+                repeat = input("do you want to add more student ? ").lower()
+                # loop to handle inavlid input
+                while repeat != 'yes' and repeat != 'no':
+                    repeat = input(" enter 'yes' or 'no': ").lower()
+                if repeat.lower() == 'yes':
+                    add_new_student = True
+                else:
+                    add_new_student = False
+            pq.displayNode()
         elif choice_3 == 'b':
             pass
         elif choice_3 == 'c':
