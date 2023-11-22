@@ -168,12 +168,34 @@ def addStudent():
         if repeat.lower() == 'yes':
             add_new_student = True
         else:
-            add_new_student = False       
+            add_new_student = False  
+    
     for i in range(len(name_list)):
         # loop to print students
         student =Student(name_list[i], midterm_list[i], final_list[i], attitude_list[i])
-        print(student)
+        student_list.append(student)
+    return student_list
+student_list = []# empty list to be accessed in priorrityQueue function
 
+class PriorityQueue:
+    def __init__(self):
+        self.head = None # initiate head pointer
+        self.size = 0
+    
+    def dequeue(self):
+        if self.size == 0:
+            print("No student to interview ")
+        elif self.size == 1:
+            print("Interview student", self.head.info)
+            self.head = None
+            self.size -= 1
+        else:
+            print("Interview student", self.head.info)
+            current = self.head
+            self.head = self.head.next
+            current.next = None
+            self.size -= 1
+        
 def priorityQueue():
     displayMenu3()
     choice_3 = 0
@@ -181,6 +203,8 @@ def priorityQueue():
         choice_3 = input("Enter your choice: ").lower()
         if choice_3 == 'a':
             addStudent()
+            for i in student_list:
+                print(i)
         elif choice_3 == 'b':
             pass
         elif choice_3 == 'c':
