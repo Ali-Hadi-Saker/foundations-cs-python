@@ -164,8 +164,8 @@ class PriorityQueue:
                 self.head = node
                 self.size += 1
             else:
-                # when adding student with good attitude to end of list of students with good attitude
-                while current is not None and (student):
+                # need to recheck this part
+                while current is not None and (student.attitude and (student.final_grade < current.student.final_grade or (student.final_grade == current.student.final_grade and student.midterm_grade < current.student.midterm_grade))) or (not student.attitude and student.final_grade < current.student.final_grade):
                     previous = current
                     current = current.next
                 previous.next = node
@@ -176,11 +176,11 @@ class PriorityQueue:
         if self.size == 0:
             print("No student to interview ")
         elif self.size == 1:
-            print("Interview student", self.head.info)
+            print("Interview student", self.head.student)
             self.head = None
             self.size -= 1
         else:
-            print("Interview student", self.head.info)
+            print("Interview student", self.head.student)
             current = self.head
             self.head = self.head.next
             current.next = None
@@ -214,7 +214,8 @@ def priorityQueue():
                     add_new_student = False
             pq.displayNode()
         elif choice_3 == 'b':
-            pass
+            pq = PriorityQueue()
+            pq.dequeue()
         elif choice_3 == 'c':
             print("Going back to Main Menu")
         else:
