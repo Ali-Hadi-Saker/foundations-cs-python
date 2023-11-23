@@ -111,55 +111,67 @@ def checkPalindrom():
             return False
     return True
 
+
 def displayMenu3():
     # display this menu if user choose choice 3
     print("\n--------------------------------------")
     print("a. Add a student\n" + "b. Interview a student\n"
           + "c. Return to main")
     print("--------------------------------------")
+
+
 class Student:
     def __init__(self, name, midterm_grade, final_grade, attitude):
         self.name = name
         self.midterm_grade = midterm_grade
         self.final_grade = final_grade
         self.attitude = attitude
-    
+
     def __str__(self):
         # string function print the object student with corresponding characteristics
         return "Name: " + self.name + ", midterm grade: " + str(self.midterm_grade) + "/100" + ", final grade: " + str(self.final_grade) + "/100" + ", attitude: " + self.attitude
     # create get methode for student class
 
+
 class Node2:
     def __init__(self, student):
         self.student = student
         self.next = None
-        
+
+
 class PriorityQueue:
     def __init__(self):
-        self.head = None # initiate head pointer
+        self.head = None  # initiate head pointer
         self.size = 0
-        
+
     def displayNode(self):
         current = self.head
         while current != None:
             print(current.student)
             current = current.next
-            
-    def enqueue(self,student):
+
+    def enqueue(self, student):
         node = Node2(student)
-        if self.size == 0:
+        if self.size == 0:  # if the list is empty
             self.head = node
             self.size += 1
         else:
             current = self.head
             previous = current
-            while current != None:
-                previous = current
-                current = current.next               
-            previous.next = node 
-            node.next = current
-            self.size += 1
-             
+            if student.attitude and (student.final_grade > self.head.student.final_grade) or (student.final_grade == self.head.student.final_grade and student.midterm_grade > self.head.student.midterm_grade):
+                # when adding a student with good attitude and first node is bad attitude
+                node.next = self.head
+                self.head = node
+                self.size += 1
+            else:
+                # when adding student with good attitude to end of list of students with good attitude
+                while current is not None and (student):
+                    previous = current
+                    current = current.next
+                previous.next = node
+                node.next = current
+                self.size += 1
+
     def dequeue(self):
         if self.size == 0:
             print("No student to interview ")
@@ -173,7 +185,8 @@ class PriorityQueue:
             self.head = self.head.next
             current.next = None
             self.size -= 1
-        
+
+
 def priorityQueue():
     displayMenu3()
     choice_3 = 0
@@ -181,12 +194,9 @@ def priorityQueue():
         choice_3 = input("Enter your choice: ").lower()
         if choice_3 == 'a':
             pq = PriorityQueue()
-            # O(n^2) n number of students user that want to add
-            # 1st loop to add student 2nd loop to print user inputs
-            # create lists to access for student class elements
+            # O(n) n number of students user that want to add
             add_new_student = True
             # check if user want to add student
-            # add each characterstics to its list
             while add_new_student:
                 name = input("enter name: ")
                 midterm_grade = int(input("enter midterm grade: "))
