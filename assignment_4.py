@@ -226,12 +226,31 @@ def displayMenu_5():
     # display this menu if user choose choice 5
     print("\n--------------------------------------")
     print("a. Add vertex\n" + "b. Add edge\n"
-          + "c. Remove vertex" + "d. Remove edge\n" + "e. Display vertices with a degree of X or more\n" + "c. Return to main")
+          + "c. Remove vertex\n" + "d. Remove edge\n" + "e. Display vertices with a degree of X or more: \n" +
+          "f. Return to main")
     print("--------------------------------------")
 
 
 def graph():
-    displayMenu_5()
+
+    choice_5 = 0
+    while choice_5 != 'f':
+        displayMenu_5()
+        choice_5 = input("Choose your choice from the list above: ").lower()
+        if choice_5 == 'a':
+            pass
+        elif choice_5 == 'b':
+            pass
+        elif choice_5 == 'c':
+            pass
+        elif choice_5 == 'd':
+            pass
+        elif choice_5 == 'e':
+            pass
+        elif choice_5 == 'f':
+            print("Going back to Main menu")
+        else:
+            print("Invalid input!!")
 
 
 def displayMenu():
