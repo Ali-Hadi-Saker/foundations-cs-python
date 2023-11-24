@@ -81,7 +81,7 @@ def singlyLL():
     choice_2 = 0
     # while loop to check the user choice
     # if your choose 'd' loop will be break and the code go back to the main function
-    LL = linkedList()  # create an instance LL of linked list class
+    LL = LinkedList()  # create an instance LL of linked list class
     while choice_2 != 'd':
         displayMenu2()
         choice_2 = input("Peek your choice from the list: ").lower()
@@ -242,6 +242,7 @@ class Graph:
     def addVertex(self, vertex):
         if vertex not in self.adj_list:
             self.adj_list[vertex] = LinkedList()
+            print("successfully added")
             return
         else:
             print("Vertex already exist")
@@ -250,6 +251,7 @@ class Graph:
         if vertex_1 in self.adj_list and vertex_2 in self.adj_list:
             self.adj_list[vertex_1].addNode(vertex_2)
             self.adj_list[vertex_2].addNode(vertex_1)
+            print("Done!!")
 
         elif vertex_1 not in self.adj_list and vertex_2 in self.adj_list:
             print(vertex_1, "does not exist")
@@ -260,23 +262,35 @@ class Graph:
         else:
             print(vertex_1, "and", vertex_2, "does not exist")
 
+    def displayGraph(self):
+        if self.adj_list == {}:
+            print("Graph is empty!")
+        else:
+            for vertex in self.adj_list:
+                print(vertex + ":", end=" ")
+                self.adj_list[vertex].displayNode()
+
 
 def graph():
-
+    graph = Graph()
     choice_5 = 0
     while choice_5 != 'f':
+
         displayMenu_5()
         choice_5 = input("Choose your choice from the list above: ").lower()
         if choice_5 == 'a':
-            pass
+            vertex = input("Enter vertex you would like to add ")
+            graph.addVertex(vertex)
         elif choice_5 == 'b':
-            pass
+            vertex_1 = input("Enter vertex 1 you would like to add edge to: ")
+            vertex_2 = input("Enter vertex 2 you would like to add edge to: ")
+            graph.addEdge(vertex_1, vertex_2)
         elif choice_5 == 'c':
             pass
         elif choice_5 == 'd':
             pass
         elif choice_5 == 'e':
-            pass
+            graph.displayGraph()
         elif choice_5 == 'f':
             print("Going back to Main menu")
         else:
@@ -291,6 +305,7 @@ def displayMenu():
 
 
 def main():
+
     user_name = input("Please enter your name: ")
     print("\nWelcome to our programme", user_name)
     choice = 0
@@ -311,6 +326,7 @@ def main():
         elif choice == 4:
             pass
         elif choice == 5:
+
             graph()
         elif choice == 6:
             print("You are exiting")
