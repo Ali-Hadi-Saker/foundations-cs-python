@@ -21,7 +21,7 @@ class Node:
         self.next = None
 
 
-class linkedList:
+class LinkedList:
     # class linked list hold head pointer and all needed behaviors
     def __init__(self):
         self.head = None
@@ -241,10 +241,24 @@ class Graph:
 
     def addVertex(self, vertex):
         if vertex not in self.adj_list:
-            self.adj_list[vertex] = linkedList()
+            self.adj_list[vertex] = LinkedList()
             return
         else:
             print("Vertex already exist")
+
+    def addEdge(self, vertex_1, vertex_2):
+        if vertex_1 in self.adj_list and vertex_2 in self.adj_list:
+            self.adj_list[vertex_1].addNode(vertex_2)
+            self.adj_list[vertex_2].addNode(vertex_1)
+
+        elif vertex_1 not in self.adj_list and vertex_2 in self.adj_list:
+            print(vertex_1, "does not exist")
+
+        elif vertex_2 not in self.adj_list and vertex_1 in self.adj_list:
+            print(vertex_2, "does not exist")
+
+        else:
+            print(vertex_1, "and", vertex_2, "does not exist")
 
 
 def graph():
