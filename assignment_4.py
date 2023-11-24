@@ -231,6 +231,22 @@ def displayMenu_5():
     print("--------------------------------------")
 
 
+class Graph:
+    # i choose AL cause we start with empty graph (no vertex and edges)
+    # add vertex and edges when user ask to
+    def __init__(self):
+        self.adj_list = {}
+        # keys of dict are the vertex
+        # element pointing to LL
+
+    def addVertex(self, vertex):
+        if vertex not in self.adj_list:
+            self.adj_list[vertex] = linkedList()
+            return
+        else:
+            print("Vertex already exist")
+
+
 def graph():
 
     choice_5 = 0
