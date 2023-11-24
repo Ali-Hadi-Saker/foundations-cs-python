@@ -240,6 +240,7 @@ class Graph:
         # element pointing to LL
 
     def addVertex(self, vertex):
+        # O(1)
         if vertex not in self.adj_list:
             self.adj_list[vertex] = LinkedList()
             print("successfully added")
@@ -248,6 +249,7 @@ class Graph:
             print("Vertex already exist")
 
     def addEdge(self, vertex_1, vertex_2):
+        # O(1) adding a node
         if vertex_1 in self.adj_list and vertex_2 in self.adj_list:
             self.adj_list[vertex_1].addNode(vertex_2)
             self.adj_list[vertex_2].addNode(vertex_1)
@@ -263,12 +265,15 @@ class Graph:
             print(vertex_1, "and", vertex_2, "does not exist")
 
     def displayGraph(self):
+        # O(n^2) looping over all vertecies O(n) and calling function display node which is O(n)
+        # where n is the number of vertecies
         if self.adj_list == {}:
             print("Graph is empty!")
         else:
             for vertex in self.adj_list:
-                print(vertex + ":", end=" ")
+                print(vertex, end=" --> ")
                 self.adj_list[vertex].displayNode()
+                print("\n")
 
 
 def graph():
@@ -279,12 +284,33 @@ def graph():
         displayMenu_5()
         choice_5 = input("Choose your choice from the list above: ").lower()
         if choice_5 == 'a':
-            vertex = input("Enter vertex you would like to add ")
-            graph.addVertex(vertex)
+            repeat = True
+            while repeat:
+                vertex = input("Enter vertex you would like to add ")
+                graph.addVertex(vertex)
+                add_more = input("Would you like to add more vertex: ")
+                while add_more != 'yes' and add_more != 'no':
+                    add_more = input("Enter 'yes' or 'no': ")
+                if add_more == 'yes':
+                    repeat = True
+                else:
+                    repeat = False
+
         elif choice_5 == 'b':
-            vertex_1 = input("Enter vertex 1 you would like to add edge to: ")
-            vertex_2 = input("Enter vertex 2 you would like to add edge to: ")
-            graph.addEdge(vertex_1, vertex_2)
+            repeat = True
+            while repeat:
+                vertex_1 = input(
+                    "Enter vertex 1 you would like to add edge to: ")
+                vertex_2 = input(
+                    "Enter vertex 2 you would like to add edge to: ")
+                graph.addEdge(vertex_1, vertex_2)
+                add_more = input("Would you like to add more edges: ")
+                while add_more != 'yes' and add_more != 'no':
+                    add_more = input("Enter 'yes' or 'no': ")
+                if add_more == 'yes':
+                    repeat = True
+                else:
+                    repeat = False
         elif choice_5 == 'c':
             pass
         elif choice_5 == 'd':
