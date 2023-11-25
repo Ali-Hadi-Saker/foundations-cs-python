@@ -318,7 +318,6 @@ def graph():
     graph = Graph()
     choice_5 = 0
     while choice_5 != 'f':
-
         displayMenu_5()
         choice_5 = input("Choose your choice from the list above: ").lower()
         if choice_5 == 'a':
@@ -387,11 +386,9 @@ def main():
                 print("Your string is not palindrome")
         elif choice == 3:
             priorityQueue()
-
         elif choice == 4:
             pass
         elif choice == 5:
-
             graph()
         elif choice == 6:
             print("You are exiting")
