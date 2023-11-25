@@ -280,7 +280,14 @@ def calcule(s):
         elif s[i] in ['+', '-', '*', '/']:
             arithmeticCalcule(op, cur)
         elif s[i] == ')':
-            pass
+            # when facing ')'
+            while isinstance(stack[-1], int):
+                # keep calculating and adding result to cuurent until stack[-1] != int
+                # stack[-1] will be op adding when '('
+                cur += stack.pop()
+            op = stack.pop()
+            # giving op its value befor '('
+            arithmeticCalcule(op, cur)
 
 
 def displayMenu_5():
