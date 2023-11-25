@@ -270,11 +270,15 @@ def calcule(s):
             stack.append(stack.pop() / num)
     for i in range(len(s)):
         if s[i].isdigit():
+            # check if the element is int if yes put it as current parameter
             cur = int(s[i])
         elif s[i] == '(':
-            pass
+            # when ( add the op to the stack
+            stack.append(op)
+            cur = 0  # to start calcule inside()
+            op = '+'  # start operation by adding
         elif s[i] in ['+', '-', '*', '/']:
-            pass
+            arithmeticCalcule(op, cur)
         elif s[i] == ')':
             pass
 
