@@ -222,6 +222,35 @@ def priorityQueue():
             print("Invalid input!!\n" + "Please enter a valid choice a or b")
 
 
+class stack:
+    def __init__(self):
+        self.head = None
+        self.size = 0
+
+    def push(self, value):
+        node = Node(value)
+        print("we are pushing". node.info)
+        node.next = self.head
+        self.head = node
+        self.size += 1
+
+    def pop(self):
+        if self.size == 0:
+            print("No value to pop")
+        else:
+            print("poping", self.head.info)
+            current = self.head
+            self.head = self.head.next
+            current.next = None
+            self.size -= 1
+
+    def peek(self):
+        if self.size:
+            print("No value to peek!!")
+        else:
+            print("You peek value", self.head.info)
+
+
 def displayMenu_5():
     # display this menu if user choose choice 5
     print("\n--------------------------------------")
@@ -275,6 +304,15 @@ class Graph:
                 self.adj_list[vertex].displayNode()
                 print("\n")
 
+    def removeVertex(self, value):
+        if self.adj_list == {}:
+            print("Graph is empty!")
+        else:
+            if value in self.adj_list:
+                self.adj_list.pop(value)
+                for vertex, linked_list in self.adj_list.items():
+                    linked_list.searchDelete(value)
+
 
 def graph():
     graph = Graph()
@@ -312,7 +350,8 @@ def graph():
                 else:
                     repeat = False
         elif choice_5 == 'c':
-            pass
+            value = input("Enter the vertex you want to remove: ")
+            graph.removeVertex(value)
         elif choice_5 == 'd':
             pass
         elif choice_5 == 'e':
