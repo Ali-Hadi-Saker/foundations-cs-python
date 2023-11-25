@@ -222,35 +222,6 @@ def priorityQueue():
             print("Invalid input!!\n" + "Please enter a valid choice a or b")
 
 
-class stack:
-    def __init__(self):
-        self.head = None
-        self.size = 0
-
-    def push(self, value):
-        node = Node(value)
-        print("we are pushing". node.info)
-        node.next = self.head
-        self.head = node
-        self.size += 1
-
-    def pop(self):
-        if self.size == 0:
-            print("No value to pop")
-        else:
-            print("poping", self.head.info)
-            current = self.head
-            self.head = self.head.next
-            current.next = None
-            self.size -= 1
-
-    def peek(self):
-        if self.size:
-            print("No value to peek!!")
-        else:
-            print("You peek value", self.head.info)
-
-
 def calcule(s):
     cur = 0  # cuurent number
     op = '+'  # operator
@@ -267,7 +238,7 @@ def calcule(s):
         elif op == '*':
             stack.append(stack.pop() * num)
         else:
-            stack.append(stack.pop() / num)
+            stack.append(int(stack.pop() / num))
     for i in range(len(s)):
         if s[i].isdigit():
             # check if the element is int if yes put it as current parameter
@@ -277,17 +248,21 @@ def calcule(s):
             stack.append(op)
             cur = 0  # to start calcule inside()
             op = '+'  # start operation by adding
-        elif s[i] in ['+', '-', '*', '/']:
+        elif s[i] in ['+', '-', '*', '/', ')']:
             arithmeticCalcule(op, cur)
-        elif s[i] == ')':
-            # when facing ')'
-            while isinstance(stack[-1], int):
-                # keep calculating and adding result to cuurent until stack[-1] != int
-                # stack[-1] will be op adding when '('
-                cur += stack.pop()
-            op = stack.pop()
-            # giving op its value befor '('
-            arithmeticCalcule(op, cur)
+            if s[i] == ')':
+                # when facing ')'
+                while isinstance(stack[-1], int):
+                    # keep calculating and adding result to cuurent until stack[-1] != int
+                    # stack[-1] will be op adding when '('
+                    cur += stack.pop()
+                op = stack.pop()
+                # giving op its value befor '('
+                arithmeticCalcule(op, cur)
+            cur = 0  # start again with cur = 0 and op = s[i]
+            op = s[i]
+    arithmeticCalcule(op, cur)  # calcule last digit
+    return sum(stack)
 
 
 def displayMenu_5():
