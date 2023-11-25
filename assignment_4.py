@@ -251,6 +251,34 @@ class stack:
             print("You peek value", self.head.info)
 
 
+def calcule(s):
+    cur = 0  # cuurent number
+    op = '+'  # operator
+    stack = []
+
+    def arithmeticCalcule(op, num):
+        # arithmetic function take operator and number as parameter
+        # add result to stack
+        # we will sum all elements of stack at the end
+        if op == '+':
+            stack.append(num)
+        elif op == '-':
+            stack.append(-num)
+        elif op == '*':
+            stack.append(stack.pop() * num)
+        else:
+            stack.append(stack.pop() / num)
+    for i in range(len(s)):
+        if s[i].isdigit():
+            cur = int(s[i])
+        elif s[i] == '(':
+            pass
+        elif s[i] in ['+', '-', '*', '/']:
+            pass
+        elif s[i] == ')':
+            pass
+
+
 def displayMenu_5():
     # display this menu if user choose choice 5
     print("\n--------------------------------------")
@@ -387,7 +415,9 @@ def main():
         elif choice == 3:
             priorityQueue()
         elif choice == 4:
-            pass
+            s = input("Enter you equation: ")
+            result = calcule(s)
+            print("Result of your equation is: ", result)
         elif choice == 5:
             graph()
         elif choice == 6:
