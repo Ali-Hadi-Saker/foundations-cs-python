@@ -348,6 +348,7 @@ class Graph:
                 print("\n")
 
     def removeVertex(self, value):
+        # O(n) n number of nodes
         if self.adj_list == {}:
             print("Graph is empty!")
         else:
@@ -358,6 +359,7 @@ class Graph:
             print(value, "vertex is deleted")
 
     def removeEdges(self, vertex_1, vertex_2):
+        # O(n) n is the number of node in the ll
         if vertex_1 in self.adj_list and vertex_2 in self.adj_list:
             # check if the 2 vertecies exist so edge exist
             self.adj_list[vertex_1].removeNode(vertex_2)
