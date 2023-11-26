@@ -357,6 +357,13 @@ class Graph:
                 self.adj_list[key].removeNode(value)
             print(value, "vertex is deleted")
 
+    def removeEdges(self, vertex_1, vertex_2):
+        if vertex_1 in self.adj_list and vertex_2 in self.adj_list:
+            # check if the 2 vertecies exist so edge exist
+            pass
+        else:
+            print("edge does ot exist")
+
 
 def graph():
     graph = Graph()
