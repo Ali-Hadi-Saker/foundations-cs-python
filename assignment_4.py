@@ -360,7 +360,9 @@ class Graph:
     def removeEdges(self, vertex_1, vertex_2):
         if vertex_1 in self.adj_list and vertex_2 in self.adj_list:
             # check if the 2 vertecies exist so edge exist
-            pass
+            self.adj_list[vertex_1].removeNode(vertex_2)
+            self.adj_list[vertex_2].removeNode(vertex_1)
+            print("Edge between", vertex_1, "and", vertex_2, "removed")
         else:
             print("edge does ot exist")
 
@@ -403,7 +405,9 @@ def graph():
             value = input("Enter the vertex you want to remove: ")
             graph.removeVertex(value)
         elif choice_5 == 'd':
-            pass
+            vertex_1 = input("Enter first vertex of the edge: ")
+            vertex_2 = input("Enter second vertex of the edge: ")
+            graph.removeEdges(vertex_1, vertex_2)
         elif choice_5 == 'e':
             graph.displayGraph()
         elif choice_5 == 'f':
