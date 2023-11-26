@@ -44,6 +44,29 @@ class LinkedList:
             self.size += 1
         print("We succefuly add the new node", node.info)
 
+    def addNode3(self, value):
+        # 2nd add node function used for add vertex
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+        self.size += 1
+        print("adding", new_node.info)
+
+    def removeNode(self, value):
+        # remove Node function used to remove vertex
+        if not self.size:
+            print("list empty")
+        else:
+            current = self.head
+            prev = current
+            while current:
+                if current.info != value and current:
+                    prev = current
+                    current = current.next
+                if current.info == value:
+                    prev.next = current.next
+                    self.size -= 1
+
     def displayNode(self):
         # O(n) n number of nodes in the LL
         if self.size == 0:
@@ -64,17 +87,18 @@ class LinkedList:
             current = self.head
             if current.info == value:
                 self.head = current.next
+                self.size -= 1  # decrement size of LL
             else:
-                prev = None  # create previous varaible
+                prev = current  # create previous varaible
                 # search for value in the LL
-                while current.info != value:
+                while current.info != value and current:
                     prev = current
                     current = current.next
                 if current.info == value:
-                    prev.next = prev.next.next
+                    prev.next = current.next
+                    self.size -= 1  # decrement size of LL
                 else:
-                    print("the value you are lokking for doesn t exist in the list: ")
-        self.size -= 1  # decrement size of LL
+                    print("the value you are lokking for doesn t exist in the list ")
 
 
 def singlyLL():
@@ -299,8 +323,8 @@ class Graph:
     def addEdge(self, vertex_1, vertex_2):
         # O(1) adding a node
         if vertex_1 in self.adj_list and vertex_2 in self.adj_list:
-            self.adj_list[vertex_1].addNode(vertex_2)
-            self.adj_list[vertex_2].addNode(vertex_1)
+            self.adj_list[vertex_1].addNode3(vertex_2)
+            self.adj_list[vertex_2].addNode3(vertex_1)
             print("Done!!")
 
         elif vertex_1 not in self.adj_list and vertex_2 in self.adj_list:
@@ -327,10 +351,11 @@ class Graph:
         if self.adj_list == {}:
             print("Graph is empty!")
         else:
-            if value in self.adj_list:
-                self.adj_list.pop(value)
-                for vertex, linked_list in self.adj_list.items():
-                    linked_list.searchDelete(value)
+            for key in self.adj_list.keys():
+                if key == value:
+                    self.adj_list.pop(value)
+                self.adj_list[key].removeNode(value)
+            print(value, "vertex is deleted")
 
 
 def graph():
