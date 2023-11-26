@@ -223,6 +223,7 @@ def priorityQueue():
 
 
 def calcule(s):
+    # O(n) n is the number of element in stack
     cur = 0  # cuurent number
     op = '+'  # operator
     stack = []
@@ -238,7 +239,10 @@ def calcule(s):
         elif op == '*':
             stack.append(stack.pop() * num)
         else:
-            stack.append(int(stack.pop() / num))
+            if num != 0:
+                stack.append(int(stack.pop() / num))
+            else:
+                stack.append(0)
     for i in range(len(s)):
         if s[i].isdigit():
             # check if the element is int if yes put it as current parameter
@@ -251,6 +255,7 @@ def calcule(s):
         elif s[i] in ['+', '-', '*', '/', ')']:
             arithmeticCalcule(op, cur)
             if s[i] == ')':
+                cur = 0
                 # when facing ')'
                 while isinstance(stack[-1], int):
                     # keep calculating and adding result to cuurent until stack[-1] != int
