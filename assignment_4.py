@@ -387,6 +387,7 @@ def graph():
                     repeat = True
                 else:
                     repeat = False
+            graph.displayGraph()  # display graph wehn user finish adding
 
         elif choice_5 == 'b':
             repeat = True
@@ -403,6 +404,7 @@ def graph():
                     repeat = True
                 else:
                     repeat = False
+            graph.displayGraph()
         elif choice_5 == 'c':
             value = input("Enter the vertex you want to remove: ")
             graph.removeVertex(value)
