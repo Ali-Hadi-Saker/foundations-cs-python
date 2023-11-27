@@ -319,17 +319,17 @@ class Graph:
         # O(1)
         if vertex not in self.adj_list:
             self.adj_list[vertex] = LinkedList()
-            print("successfully added")
+            print(vertex, "successfully added")
             return
         else:
-            print("Vertex already exist")
+            print(vertex, "Vertex already exist")
 
     def addEdge(self, vertex_1, vertex_2):
         # O(1) adding a node
         if vertex_1 in self.adj_list and vertex_2 in self.adj_list:
             self.adj_list[vertex_1].addNode3(vertex_2)
             self.adj_list[vertex_2].addNode3(vertex_1)
-            print("Done!!")
+            print("Edge btween", vertex_1, "and", vertex_2, "added")
 
         elif vertex_1 not in self.adj_list and vertex_2 in self.adj_list:
             print(vertex_1, "does not exist")
@@ -370,9 +370,10 @@ class Graph:
             self.adj_list[vertex_2].removeNode(vertex_1)
             print("Edge between", vertex_1, "and", vertex_2, "removed")
         else:
-            print("edge does ot exist")
+            print("edge does ot exist!!")
 
     def displayDegree(self, n):
+        # O(n) n is the number of vertecies exist
         for key in self.adj_list.keys():
             # looping in each LL
             if self.adj_list[key].size >= n:
