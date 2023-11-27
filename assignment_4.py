@@ -374,8 +374,10 @@ class Graph:
 
     def displayDegree(self, n):
         for key in self.adj_list.keys():
+            # looping in each LL
             if self.adj_list[key].size >= n:
-                print(self.adj_list[key].size)
+                # check if number of element >= n
+                print("vertex:", key, "has degre of", self.adj_list[key].size)
 
 
 def graph():
