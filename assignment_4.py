@@ -28,6 +28,10 @@ class LinkedList:
         self.tail = None  # tail help to add a new node (for optimization)
         self.size = 0
 
+    def size(self):
+
+        return self.size
+
     def addNode(self, value):
         # O(1) just adding to the end of LL using tail pointer
         node = Node(value)  # create the object node
@@ -368,6 +372,11 @@ class Graph:
         else:
             print("edge does ot exist")
 
+    def displayDegree(self, n):
+        for key in self.adj_list.keys():
+            if self.adj_list[key].size >= n:
+                print(self.adj_list[key].size)
+
 
 def graph():
     graph = Graph()
@@ -413,7 +422,8 @@ def graph():
             vertex_2 = input("Enter second vertex of the edge: ")
             graph.removeEdges(vertex_1, vertex_2)
         elif choice_5 == 'e':
-            graph.displayGraph()
+            n = int(input("Enter degree of vertex you want to desplay: "))
+            graph.displayDegree(n)
         elif choice_5 == 'f':
             print("Going back to Main menu")
         else:
