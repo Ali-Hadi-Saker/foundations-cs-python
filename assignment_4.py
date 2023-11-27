@@ -293,7 +293,7 @@ def calcule(s):
                 # giving op its value befor '('
                 arithmeticCalcule(op, cur)
             cur = 0  # start again with cur = 0 and op = s[i]
-            op = s[i]
+            op = '+'
     arithmeticCalcule(op, cur)  # calcule last digit
     return sum(stack)
 
@@ -445,29 +445,37 @@ def main():
     user_name = input("Please enter your name: ")
     print("\nWelcome to our programme", user_name)
     choice = 0
-    while choice != 6:
+    limit = 0  # limit for wrong input
+    while choice != 6 and limit != 4:
         displayMenu()
         choice = int(input("Please enter your choice from the list above: "))
         if choice == 1:
             singlyLL()
+            limit = 0  # reset limits
         elif choice == 2:
+            limit = 0  # reset limits
             result = checkPalindrom()
             if result:
                 print("Your string is palindrome")
             else:
                 print("Your string is not palindrome")
         elif choice == 3:
+            limit = 0  # reset limits
             priorityQueue()
         elif choice == 4:
+            limit = 0  # reset limits
             s = input("Enter you equation: ")
             result = calcule(s)
             print("Result of your equation is: ", result)
         elif choice == 5:
+            limit = 0  # reset limits
             graph()
         elif choice == 6:
             print("You are exiting")
         else:
             print("Please enter a valid choice")
+            limit += 1
+
     print("You did exit the programme")
 
 
